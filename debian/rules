@@ -3,7 +3,7 @@
 
 config.status:
 	dh_testdir
-	PREFIX="/usr" ./configure --debug --shared-v8 --shared-cares --shared-libev
+	PREFIX="/usr" ./configure --debug # --shared-v8 --shared-cares --shared-libev
 	touch $@
 
 build: build-stamp
