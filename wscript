@@ -561,8 +561,8 @@ def build(bld):
 
   # Only install the man page if it exists.
   # Do 'make doc install' to build and install it.
-  if os.path.exists('doc/node.1'):
-    bld.install_files('${PREFIX}/share/man/man1/', 'doc/node.1')
+  if os.path.exists('doc/nodejs.1'):
+    bld.install_files('${PREFIX}/share/man/man1/', 'doc/nodejs.1')
 
   bld.install_files('${PREFIX}/bin/', 'bin/*', chmod=0755)
   bld.install_files('${PREFIX}/lib/node/wafadmin', 'tools/wafadmin/*.py')
