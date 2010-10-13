@@ -28,9 +28,8 @@ def detect(conf):
   lib = join(prefix, 'lib')
 
   conf.env['LIBPATH_NODE'] = lib
-  conf.env['CPPPATH_NODE'] = join(prefix, 'include', 'node')
+  conf.env['CPPPATH_NODE'] = join(prefix, 'include', 'nodejs')
   conf.env['CPPFLAGS_NODE'] = '-D_GNU_SOURCE'
-  conf.env['CPPFLAGS_NODE'] = '-DEV_MULTIPLICITY=0'
 
   # with symbols
   conf.env.append_value('CCFLAGS', ['-g'])
@@ -43,7 +42,7 @@ def detect(conf):
   found = os.path.exists(conf.env['NODE_PATH'])
   conf.check_message('node path', '', found, conf.env['NODE_PATH'])
 
-  found = os.path.exists(join(prefix, 'bin', 'node'))
+  found = os.path.exists(join(prefix, 'bin', 'nodejs'))
   conf.check_message('node prefix', '', found, prefix)
 
   ## On Cygwin we need to link to the generated symbol definitions
@@ -57,7 +56,7 @@ def get_node_path():
     nodePath = None
     if not os.environ.has_key('NODE_PATH'):
         if not os.environ.has_key('HOME'):
-            nodePath = join(get_prefix(), 'lib', 'node')
+            nodePath = join(get_prefix(), 'lib', 'nodejs')
         else:
             nodePath = join(os.environ['HOME'], '.node_libraries')
     else:
