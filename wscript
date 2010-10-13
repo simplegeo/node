@@ -565,8 +565,8 @@ def build(bld):
     bld.install_files('${PREFIX}/share/man/man1/', 'doc/nodejs.1')
 
   bld.install_files('${PREFIX}/bin/', 'bin/*', chmod=0755)
-  bld.install_files('${PREFIX}/lib/node/wafadmin', 'tools/wafadmin/*.py')
-  bld.install_files('${PREFIX}/lib/node/wafadmin/Tools', 'tools/wafadmin/Tools/*.py')
+  bld.install_files('${PREFIX}/share/nodejs/wafadmin', 'tools/wafadmin/*.py')
+  bld.install_files('${PREFIX}/share/nodejs/wafadmin/Tools', 'tools/wafadmin/Tools/*.py')
 
 def shutdown():
   Options.options.debug
