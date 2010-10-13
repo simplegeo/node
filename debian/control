@@ -1,8 +1,8 @@
 Source: nodejs
 Section: web
 Priority: extra
-Maintainer: Jérémy Lal <kapouer@melix.org>
-Uploaders: Dave Beckett <dajobe@debian.org>
+Maintainer: SimpleGeo Nerds <nerds@simplegeo.com>
+Uploaders: Wade Simmons <wade@simplegeo.com>
 Build-Depends: debhelper (>= 7), python, scons (>= 1.2.0), binutils, libssl-dev (>= 0.9.8), pkg-config, bash-completion
 Standards-Version: 3.9.1
 Homepage: http://nodejs.org/
