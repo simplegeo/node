@@ -11,6 +11,7 @@ build: build-stamp
 build-stamp: config.status
 	dh_testdir
 	$(MAKE)
+	$(MAKE) doc
 
 clean:
 	rm -f node
