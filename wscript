@@ -215,7 +215,7 @@ def configure(conf):
       conf.fatal("Cannot find v8")
 
     if o.debug:
-      if not conf.check_cxx(lib=o.shared_v8_libname + '_g', header_name='v8.h',
+      if not conf.check_cxx(lib=o.shared_v8_libname, header_name='v8.h',
                             uselib_store='V8_G',
                             includes=v8_includes,
                             libpath=v8_libpath):
