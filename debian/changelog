@@ -1,3 +1,40 @@
+nodejs (0.2.3-0sg9) lucid; urgency=low
+
+  [ Wade Simmons ]
+  * update-alternatives for 'node'
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Thu, 14 Oct 2010 23:43:25 +0000
+
+nodejs (0.2.3-0sg8) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Wed, 13 Oct 2010 22:47:35 +0000
+
+nodejs (0.2.3-0sg7) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Wed, 13 Oct 2010 22:20:43 +0000
+
+nodejs (0.2.3-0sg5) lucid; urgency=low
+
+  [ Wade Simmons ]
+  * Revert "help file changed" This reverts commit
+    180c3909a1236ce3fe6d576e3dd5ed90a2b6562d.
+  * apply debian/patches/install-man-nodejs.patch
+  * apply debian/patches/install-wafadmin-to-datadir.patch
+  * apply debian/patches/node_addon-paths-and-ev_multiplicity.patch
+  * apply debian/patches/nodejs-waf-and-node_path.patch
+  * apply debian/patches/no-v8-debug-lib.patch
+  * remove debian/patches/* as we have applied them locally
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Wed, 13 Oct 2010 21:36:49 +0000
+
 nodejs (0.2.3-0sg0) unstable; urgency=low
 
   * New upstream release
