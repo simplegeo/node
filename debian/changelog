@@ -1,3 +1,9 @@
+nodejs (0.2.4-0sg11) lucid; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Fri, 29 Oct 2010 00:10:35 +0000
+
 nodejs (0.2.4-0sg0) unstable; urgency=low
 
   * New upstream release
