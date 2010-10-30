@@ -377,7 +377,7 @@ def build_v8(bld):
     t = join(bld.srcnode.abspath(bld.env_of_name("debug")), v8_debug.target)
     bld.env_of_name('debug').append_value("LINKFLAGS_V8_G", t)
 
-  bld.install_files('${PREFIX}/include/node/', 'deps/v8/include/*.h')
+  bld.install_files('${PREFIX}/include/nodejs/', 'deps/v8/include/*.h')
 
 
 def build(bld):
@@ -465,8 +465,8 @@ def build(bld):
 
   ### node lib
   node = bld.new_task_gen("cxx", "program")
-  node.name         = "node"
-  node.target       = "node"
+  node.name         = "nodejs"
+  node.target       = "nodejs"
   node.uselib = 'RT EV OPENSSL CARES EXECINFO DL KVM SOCKET NSL'
   node.add_objects = 'eio http_parser'
   node.install_path = '${PREFIX}/lib'
@@ -536,7 +536,7 @@ def build(bld):
   node_conf.source = 'src/node_config.h.in'
   node_conf.target = 'src/node_config.h'
   node_conf.dict = subflags(node)
-  node_conf.install_path = '${PREFIX}/include/node'
+  node_conf.install_path = '${PREFIX}/include/nodejs'
 
   if bld.env["USE_DEBUG"]:
     node_g = node.clone("debug")
@@ -550,7 +550,7 @@ def build(bld):
   # After creating the debug clone, append the V8 dep
   node.uselib += ' V8'
 
-  bld.install_files('${PREFIX}/include/node/', """
+  bld.install_files('${PREFIX}/include/nodejs/', """
     config.h
     src/node.h
     src/node_object_wrap.h
@@ -577,10 +577,10 @@ def shutdown():
       print "WARNING WARNING WARNING"
       print "OpenSSL not found. Will compile Node without crypto support!"
   elif not Options.commands['clean']:
-    if os.path.exists('build/default/node') and not os.path.exists('node'):
-      os.symlink('build/default/node', 'node')
+    if os.path.exists('build/default/nodejs') and not os.path.exists('nodejs'):
+      os.symlink('build/default/nodejs', 'nodejs')
     if os.path.exists('build/debug/node_g') and not os.path.exists('node_g'):
       os.symlink('build/debug/node_g', 'node_g')
   else:
-    if os.path.exists('node'): os.unlink('node')
+    if os.path.exists('nodejs'): os.unlink('nodejs')
     if os.path.exists('node_g'): os.unlink('node_g')
