@@ -48,11 +48,10 @@ install: build
 	DESTDIR=$(CURDIR)/debian/nodejs $(MAKE) install
 	# don't install node-repl
 	rm -f $(CURDIR)/debian/nodejs/usr/bin/node-repl
-	# rename and install binaries in nodejs, nodejs-dbg
-	mv $(CURDIR)/debian/nodejs/usr/bin/node $(CURDIR)/debian/nodejs/usr/bin/nodejs
+	# install binaries in nodejs, nodejs-dbg
 	mv $(CURDIR)/debian/nodejs/usr/bin/node_g $(CURDIR)/debian/nodejs-dbg/usr/lib/debug/usr/bin/nodejs
 	# headers for nodejs-dev
-	mv $(CURDIR)/debian/nodejs/usr/include/node/* $(CURDIR)/debian/nodejs-dev/usr/include/nodejs/
+	mv $(CURDIR)/debian/nodejs/usr/include/nodejs/* $(CURDIR)/debian/nodejs-dev/usr/include/nodejs/
 	rm -rf $(CURDIR)/debian/nodejs/usr/include
 	# waf for nodejs-dev
 	mv $(CURDIR)/debian/nodejs/usr/bin/node-waf $(CURDIR)/debian/nodejs-dev/usr/bin/nodejs-waf

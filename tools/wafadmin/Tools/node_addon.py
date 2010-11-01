@@ -30,6 +30,7 @@ def detect(conf):
   conf.env['LIBPATH_NODE'] = lib
   conf.env['CPPPATH_NODE'] = join(prefix, 'include', 'nodejs')
   conf.env['CPPFLAGS_NODE'] = '-D_GNU_SOURCE'
+  conf.env['CPPFLAGS_NODE'] = '-DEV_MULTIPLICITY=0'
 
   # with symbols
   conf.env.append_value('CCFLAGS', ['-g'])
