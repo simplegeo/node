@@ -1,3 +1,14 @@
+nodejs (0.2.4-0sg12) lucid; urgency=low
+
+  [ Seth Fitzsimmons ]
+  * More thorough path / name changing Installs files in appropriate
+    paths w/ appropriate names as part of the build process.
+  * disable EV_MULTIPLICITY
+
+  [ SimpleGeo Nerds ]
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Mon, 01 Nov 2010 20:06:13 +0000
+
 nodejs (0.2.4-0sg11) lucid; urgency=low
 
   * UNRELEASED
