@@ -1,3 +1,9 @@
+nodejs (0.2.6-0sg0) unstable; urgency=low
+
+  * New upstream release
+
+ -- Wade Simmons <wade@simplegeo.com>  Thu, 06 Jan 2011 21:58:31 +0000
+
 nodejs (0.2.5-0sg13) lucid; urgency=low
 
   * UNRELEASED
