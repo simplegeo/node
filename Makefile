@@ -42,7 +42,7 @@ doc: doc/node.1 doc/api.html doc/index.html doc/changelog.html
 
 ## HACK to give the ronn-generated page a TOC
 doc/api.html: all doc/api.markdown doc/api_header.html doc/api_footer.html
-	build/default/nodejs tools/ronnjs/bin/ronn.js --fragment doc/api.markdown \
+	build/default/node tools/ronnjs/bin/ronn.js --fragment doc/api.markdown \
 	| sed "s/<h2>\(.*\)<\/h2>/<h2 id=\"\1\">\1<\/h2>/g" \
 	| cat doc/api_header.html - doc/api_footer.html > doc/api.html
 
@@ -50,7 +50,7 @@ doc/changelog.html: ChangeLog doc/changelog_header.html doc/changelog_footer.htm
 	cat doc/changelog_header.html ChangeLog doc/changelog_footer.html > doc/changelog.html
 
 doc/node.1: doc/api.markdown all
-	build/default/nodejs tools/ronnjs/bin/ronn.js --roff doc/api.markdown > doc/node.1
+	build/default/node tools/ronnjs/bin/ronn.js --roff doc/api.markdown > doc/node.1
 
 website-upload: doc
 	scp doc/* ryan@nodejs.org:~/web/nodejs.org/

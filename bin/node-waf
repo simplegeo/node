@@ -1,12 +1,11 @@
 #!/usr/bin/env python
 import os, sys
 
+
 join = os.path.join
-if os.environ.has_key('PREFIX_NODE'):
-	prefix = os.environ['PREFIX_NODE']
-else:
-	prefix = "/usr"
-wafdir = join(prefix, "share", "nodejs")
+bindir = os.path.dirname(os.path.realpath(__file__))
+prefix = join(bindir, "..")
+wafdir = join(prefix, "lib", "node")
 
 w = join(wafdir, 'wafadmin')
 t = join(w, 'Tools')

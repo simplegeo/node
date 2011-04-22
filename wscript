@@ -222,7 +222,7 @@ def configure(conf):
       conf.fatal("Cannot find v8")
 
     if o.debug:
-      if not conf.check_cxx(lib=o.shared_v8_libname, header_name='v8.h',
+      if not conf.check_cxx(lib=o.shared_v8_libname + '_g', header_name='v8.h',
                             uselib_store='V8_G',
                             includes=v8_includes,
                             libpath=v8_libpath):
@@ -391,7 +391,7 @@ def build_v8(bld):
     t = join(bld.srcnode.abspath(bld.env_of_name("debug")), v8_debug.target)
     bld.env_of_name('debug').append_value("LINKFLAGS_V8_G", t)
 
-  bld.install_files('${PREFIX}/include/nodejs/', 'deps/v8/include/*.h')
+  bld.install_files('${PREFIX}/include/node/', 'deps/v8/include/*.h')
 
 
 def build(bld):
@@ -479,8 +479,8 @@ def build(bld):
 
   ### node lib
   node = bld.new_task_gen("cxx", "program")
-  node.name         = "nodejs"
-  node.target       = "nodejs"
+  node.name         = "node"
+  node.target       = "node"
   node.uselib = 'RT EV OPENSSL CARES EXECINFO DL KVM SOCKET NSL'
   node.add_objects = 'eio http_parser'
   node.install_path = '${PREFIX}/lib'
@@ -550,7 +550,7 @@ def build(bld):
   node_conf.source = 'src/node_config.h.in'
   node_conf.target = 'src/node_config.h'
   node_conf.dict = subflags(node)
-  node_conf.install_path = '${PREFIX}/include/nodejs'
+  node_conf.install_path = '${PREFIX}/include/node'
 
   if bld.env["USE_DEBUG"]:
     node_g = node.clone("debug")
@@ -564,7 +564,7 @@ def build(bld):
   # After creating the debug clone, append the V8 dep
   node.uselib += ' V8'
 
-  bld.install_files('${PREFIX}/include/nodejs/', """
+  bld.install_files('${PREFIX}/include/node/', """
     config.h
     src/node.h
     src/node_object_wrap.h
@@ -575,12 +575,12 @@ def build(bld):
 
   # Only install the man page if it exists.
   # Do 'make doc install' to build and install it.
-  if os.path.exists('doc/nodejs.1'):
-    bld.install_files('${PREFIX}/share/man/man1/', 'doc/nodejs.1')
+  if os.path.exists('doc/node.1'):
+    bld.install_files('${PREFIX}/share/man/man1/', 'doc/node.1')
 
   bld.install_files('${PREFIX}/bin/', 'bin/*', chmod=0755)
-  bld.install_files('${PREFIX}/share/nodejs/wafadmin', 'tools/wafadmin/*.py')
-  bld.install_files('${PREFIX}/share/nodejs/wafadmin/Tools', 'tools/wafadmin/Tools/*.py')
+  bld.install_files('${PREFIX}/lib/node/wafadmin', 'tools/wafadmin/*.py')
+  bld.install_files('${PREFIX}/lib/node/wafadmin/Tools', 'tools/wafadmin/Tools/*.py')
 
 def shutdown():
   Options.options.debug
@@ -591,10 +591,10 @@ def shutdown():
       print "WARNING WARNING WARNING"
       print "OpenSSL not found. Will compile Node without crypto support!"
   elif not Options.commands['clean']:
-    if os.path.exists('build/default/nodejs') and not os.path.exists('nodejs'):
-      os.symlink('build/default/nodejs', 'nodejs')
+    if os.path.exists('build/default/node') and not os.path.exists('node'):
+      os.symlink('build/default/node', 'node')
     if os.path.exists('build/debug/node_g') and not os.path.exists('node_g'):
       os.symlink('build/debug/node_g', 'node_g')
   else:
-    if os.path.exists('nodejs'): os.unlink('nodejs')
+    if os.path.exists('node'): os.unlink('node')
     if os.path.exists('node_g'): os.unlink('node_g')

@@ -1,3 +1,0 @@
-#!/bin/sh
-
-update-alternatives --install /usr/bin/node node /usr/bin/nodejs 10

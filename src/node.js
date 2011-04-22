@@ -146,7 +146,7 @@ var module = (function () {
   var pathModule = createInternalModule('path', pathFn);
   var path = pathModule.exports;
 
-  var modulePaths = [path.join(process.execPath, "..", "..", "lib", "nodejs")];
+  var modulePaths = [path.join(process.execPath, "..", "..", "lib", "node")];
 
   if (process.env["HOME"]) {
     modulePaths.unshift(path.join(process.env["HOME"], ".node_libraries"));
