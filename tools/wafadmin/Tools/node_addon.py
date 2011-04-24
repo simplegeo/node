@@ -28,7 +28,7 @@ def detect(conf):
   lib = join(prefix, 'lib')
 
   conf.env['LIBPATH_NODE'] = lib
-  conf.env['CPPPATH_NODE'] = join(prefix, 'include', 'node')
+  conf.env['CPPPATH_NODE'] = join(prefix, 'include', 'nodejs')
 
   conf.env.append_value('CPPFLAGS_NODE', '-D_GNU_SOURCE')
   conf.env.append_value('CPPFLAGS_NODE', '-DEV_MULTIPLICITY=0')
@@ -64,7 +64,7 @@ def get_node_path():
     nodePath = None
     if not os.environ.has_key('NODE_PATH'):
         if not os.environ.has_key('HOME'):
-            nodePath = join(get_prefix(), 'lib', 'node')
+            nodePath = join(get_prefix(), 'lib', 'nodejs')
         else:
             nodePath = join(os.environ['HOME'], '.node_libraries')
     else:
