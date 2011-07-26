@@ -1,3 +1,9 @@
+nodejs (0.4.10-0sg25) maverick; urgency=low
+
+  * UNRELEASED
+
+ -- SimpleGeo Nerds <nerds@simplegeo.com>  Tue, 26 Jul 2011 00:10:36 +0000
+
 nodejs (0.4.10-0sg0) unstable; urgency=low
 
   * New upstream release
